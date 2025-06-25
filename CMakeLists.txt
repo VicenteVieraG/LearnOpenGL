@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 4.0.3)
 
 # Project name, version and languages
 #! Change the project name and version here
-project(MY_PROJECT VERSION 0.0.0 LANGUAGES C CXX)
+project(LearOpenGL VERSION 0.0.1 LANGUAGES C CXX)
 
 # Configure build options
 set(CMAKE_CXX_STANDARD 23)
