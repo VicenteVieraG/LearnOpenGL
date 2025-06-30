@@ -13,11 +13,11 @@
 #define BLACK 0.0f, 0.0f, 0.0f, 1.0f
 
 void initGLFW();
-void initWindow(GLFWwindow*& window, const std::string& title, const unsigned int& width, const unsigned int& height);
+void initWindow(GLFWwindow*& window, const std::string& title, const unsigned int width, const unsigned int height);
 void initGLbinding();
 void gameLoop(GLFWwindow*& window);
 
-int main(int argc, char** argv){
+int main(void){
     std::cout<<project_name<<std::endl;
     std::cout<<project_version<<std::endl;
     std::cout<<"C++ Standard: "<<__cplusplus<<std::endl;
@@ -41,7 +41,7 @@ void initGLFW(){
     return;
 }
 
-void initWindow(GLFWwindow*& window, const std::string& title, const unsigned int& width, const unsigned int& height){
+void initWindow(GLFWwindow*& window, const std::string& title, const unsigned int width, const unsigned int height){
     glfwWindowHint(GLFW_RESIZABLE, true);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
