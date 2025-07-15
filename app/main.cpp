@@ -11,10 +11,12 @@
 #include <glbinding-aux/ContextInfo.h>
 
 #define BLACK 0.0f, 0.0f, 0.0f, 1.0f
+#define WHITE 1.0f, 1.0f, 1.0f, 1.0f
 
 void initGLFW();
 void initWindow(GLFWwindow*& window, const std::string& title, const unsigned int width, const unsigned int height);
 void initGLbinding();
+void glfwSetCallbacks(GLFWwindow*& window);
 void gameLoop(GLFWwindow*& window);
 
 int main(void){
@@ -30,6 +32,7 @@ int main(void){
     initGLFW();
     initWindow(window, TITLE, WIDTH, HEIGHT);
     initGLbinding();
+    glfwSetCallbacks(window);
     gameLoop(window);
 
     return 0;
@@ -70,11 +73,19 @@ void initGLbinding(){
     return;
 }
 
+void glfwSetCallbacks(GLFWwindow*& window){
+    glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) -> void {
+        gl::glViewport(0, 0, width, height);
+    });
+
+    return;
+}
+
 void gameLoop(GLFWwindow*& window){
     do{
         glfwPollEvents();
 
-        gl::glClearColor(BLACK);
+        gl::glClearColor(WHITE);
         gl::glClear(gl::GL_COLOR_BUFFER_BIT);
 
         glfwSwapBuffers(window);
