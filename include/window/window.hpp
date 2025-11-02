@@ -20,9 +20,10 @@ namespace glfw {
             void setCallbacks() const;
         public:
             Window() = default;
-            ~Window() = default;
             Window(const std::string_view title, const unsigned int width, const unsigned int height);
-    
-            GLFWwindow*& getPtr();
+            Window(Window&& window) = default;
+            ~Window();
+
+            GLFWwindow*& getPtr() noexcept;
         };
 };

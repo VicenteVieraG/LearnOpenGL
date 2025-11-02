@@ -14,6 +14,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Custom libraries
 set(APP app)
 set(WINDOW window)
+set(GEOMETRY geometry)
+set(SHADER shader)
 
 # Subdirectories
 add_subdirectory(config)

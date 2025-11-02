@@ -57,7 +57,14 @@ namespace glfw {
         });
     }
 
-    GLFWwindow*& Window::getPtr(){
+    GLFWwindow*& Window::getPtr() noexcept {
         return this->window;
+    }
+
+    Window::~Window(){
+        if(this->window){
+            glfwDestroyWindow(this->window);
+            this->window = nullptr;
+        }
     }
 };
